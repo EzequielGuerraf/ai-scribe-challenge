@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: scribe
+      POSTGRES_USER: scribe
+      POSTGRES_PASSWORD: scribe
+    ports: ["5432:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    ports: ["8080:8080"]
+volumes:
+  pgdata:

@@ -1,0 +1,32 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id        String   @id @default(cuid())
+  firstName String
+  lastName  String
+  dob       DateTime
+  mrn       String   @unique
+  createdAt DateTime @default(now())
+  notes     Note[]
+}
+
+model Note {
+  id            String   @id @default(cuid())
+  patientId     String
+  inputType     String // 'text' | 'audio'
+  status        String // 'processing' | 'ready' | 'failed'
+  sourceText    String?
+  transcript    String?
+  generatedNote String?
+  createdAt     DateTime @default(now())
+  patient       Patient  @relation(fields: [patientId], references: [id])
+}
