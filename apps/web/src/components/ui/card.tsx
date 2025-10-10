@@ -12,7 +12,7 @@ export function Card({ children, className }: { children: ReactNode; className?:
 export function CardHeader({ title, subtitle, className }: { title: string; subtitle?: string; className?: string }) {
   return (
     <div className={cn("border-b p-5", className)}>
-      <h3 className="font-semibold tracking-tight">{title}</h3>
+      <h3 className="font-semibold tracking-tight text-emerald-900 text-md">{title}</h3>
       {subtitle && <p className="text-sm text-gray-500 mt-0.5">{subtitle}</p>}
     </div>
   );

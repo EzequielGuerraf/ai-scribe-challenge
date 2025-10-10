@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <header className="mb-6 rounded-md border bg-emerald-600 p-4 shadow-sm">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="h-8 w-8 rounded-lg bg-black" />
+                <div className="h-8 w-8 rounded-lg bg-emerald-50" />
                 <h1 className="text-xl font-semibold tracking-tight">AI Scribe</h1>
               </div>
               <nav className="text-sm">

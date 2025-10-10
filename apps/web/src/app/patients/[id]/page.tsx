@@ -1,5 +1,5 @@
 "use client";
-/*Displays all notes for a specific patient with quick actions.*/
+
 import { useParams } from "next/navigation";
 import { usePatientNotes } from "@/hooks/useNotes";
 import { Card, CardBody, CardHeader } from "@/components/ui/card";
@@ -24,12 +24,12 @@ export default function PatientNotes() {
               <li key={n.id} className="border rounded p-3 flex items-center justify-between">
                 <div>
                   <div className="text-sm text-gray-500">{new Date(n.createdAt).toLocaleString()}</div>
-                  <div className="font-medium flex items-center gap-2">
+                  <div className="font-extralight flex items-center gap-2 text-gray-600">
                     Status: <StatusBadge status={n.status} />
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <a className="text-blue-600 hover:underline text-sm" href={`/notes/${n.id}`}>Open →</a>
+                  <a className="text-emerald-600 hover:underline text-sm" href={`/notes/${n.id}`}>Open →</a>
                   <NoteActions id={n.id} onDone={() => refetch()} />
                 </div>
               </li>

@@ -3,26 +3,55 @@ import { cn } from "@/lib/utils";
 import type { ButtonHTMLAttributes } from "react";
 
 const button = cva(
-  "inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-black/10",
+  "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors " +
+  "disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:ring-2 focus:ring-offset-2",
   {
     variants: {
       variant: {
-        primary: "bg-black text-white hover:bg-black/90",
-        outline: "border border-gray-300 bg-white hover:bg-gray-50",
-        ghost: "hover:bg-gray-100"
+        primary:
+          "bg-emerald-600 text-white hover:bg-emerald-700 focus:ring-emerald-500",
+        outline:
+          "border border-emerald-600 text-emerald-700 bg-white hover:bg-emerald-50 focus:ring-emerald-500",
+        ghost:
+          "text-gray-700 hover:bg-gray-100 focus:ring-gray-300",
+        secondary:
+          "bg-sky-600 text-white hover:bg-sky-700 focus:ring-sky-500",
+        danger:
+          "bg-rose-600 text-white hover:bg-rose-700 focus:ring-rose-500"
       },
-      size: { sm: "h-8 px-3", md: "h-10 px-4", lg: "h-11 px-5" }
+      size: {
+        sm: "h-8 px-3 text-xs",
+        md: "h-10 px-4 text-sm",
+        lg: "h-11 px-6 text-base"
+      }
     },
-    defaultVariants: { variant: "primary", size: "md" }
+    defaultVariants: {
+      variant: "primary",
+      size: "md"
+    }
   }
 );
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof button> & { isLoading?: boolean };
+type Props = ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof button> & { isLoading?: boolean };
 
-export function Button({ className, variant, size, isLoading, children, ...props }: Props) {
+export function Button({
+  className,
+  variant,
+  size,
+  isLoading,
+  children,
+  ...props
+}: Props) {
   return (
-    <button className={cn(button({ variant, size }), className)} disabled={isLoading || props.disabled} {...props}>
-      {isLoading && <span className="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-gray-200 border-t-current" />}
+    <button
+      className={cn(button({ variant, size }), className)}
+      disabled={isLoading || props.disabled}
+      {...props}
+    >
+      {isLoading && (
+        <span className="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-t-transparent border-white/60" />
+      )}
       {children}
     </button>
   );
