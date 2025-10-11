@@ -38,7 +38,7 @@ pnpm prisma migrate dev
 pnpm start:all
 🧠 Frontend: http://localhost:3000
 ⚙️ Backend: http://localhost:4000
-```bash
+```
 
 ## 🧩 Features
 ✅ List mock patients
