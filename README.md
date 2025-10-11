@@ -53,7 +53,7 @@ pnpm start:all
 
 💥 Fallback heuristic if AI fails
 
-##🔗 API Summary
+## 🔗 API Summary
 Method	Endpoint	Purpose
 GET	/patients	List all patients
 POST	/notes	Create text note
@@ -63,7 +63,7 @@ POST	/notes/:id/generate	Generate SOAP (GPT-4o-mini)
 GET	/patients/:id/notes	Get patient notes
 GET	/notes/:id	Get note detail
 
-##🧠 AI Integration
+## 🧠 AI Integration
 Transcription (Whisper)
 Converts audio files to text.
 Model: whisper-1
@@ -79,7 +79,7 @@ A: Assessment
 P: Plan
 If AI fails or quota ends → fallback heuristic SOAP generation is used.
 
-##🧱 Structure
+## 🧱 Structure
 bash
 Copiar código
 ai-scribe/
@@ -90,7 +90,7 @@ ai-scribe/
 └── README.md
 
 
-##💡 Improvements (Next Steps)
+## 💡 Improvements (Next Steps)
 🔐 Auth & role-based users
 
 🎧 Audio recording from browser
