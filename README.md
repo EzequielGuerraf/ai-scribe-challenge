@@ -1,7 +1,3 @@
-# 🩺 AI Scribe — Notes Management Tool
-
-> A lightweight **AI-powered** clinical notes manager that transcribes audio and generates SOAP notes automatically.
-
 ---
 
 ## 🚀 Tech Stack
@@ -40,3 +36,71 @@ pnpm prisma migrate dev
 
 # 6️⃣ Start both apps
 pnpm start:all
+🧠 Frontend: http://localhost:3000
+⚙️ Backend: http://localhost:4000
+
+🧩 Features
+✅ List mock patients
+
+📝 Create text or audio notes
+
+🎙️ Transcribe audio → text (Whisper)
+
+🩺 Generate SOAP note (GPT-4o-mini)
+
+📄 View note details (text, transcript, SOAP)
+
+💥 Fallback heuristic if AI fails
+
+🔗 API Summary
+Method	Endpoint	Purpose
+GET	/patients	List all patients
+POST	/notes	Create text note
+POST	/notes/audio	Upload audio
+POST	/notes/:id/transcribe	Transcribe via Whisper
+POST	/notes/:id/generate	Generate SOAP (GPT-4o-mini)
+GET	/patients/:id/notes	Get patient notes
+GET	/notes/:id	Get note detail
+
+🧠 AI Integration
+Transcription (Whisper)
+Converts audio files to text.
+Model: whisper-1
+
+SOAP Generation (GPT-4o-mini)
+Converts transcript → SOAP structure.
+
+makefile
+Copiar código
+S: Subjective  
+O: Objective  
+A: Assessment  
+P: Plan
+If AI fails or quota ends → fallback heuristic SOAP generation is used.
+
+🧱 Structure
+bash
+Copiar código
+ai-scribe/
+├── apps/
+│   ├── api/         # Express backend + Prisma + AI
+│   └── web/         # Next.js frontend + Tailwind
+├── docker-compose.yml
+└── README.md
+💡 Improvements (Next Steps)
+🔐 Auth & role-based users
+
+🎧 Audio recording from browser
+
+☁️ Cloud storage for files (S3)
+
+🧾 Specialty-specific SOAP templates
+
+🌍 Multi-language support
+
+🧠 Add summarization / risk flags via LLMs
+
+👨‍💻 Author
+Ezequiel Guerra — Full-Stack Developer
+🌎 Uruguay | 💻 React • Node.js • TypeScript
+🔗 LinkedIn · 🐙 GitHub
