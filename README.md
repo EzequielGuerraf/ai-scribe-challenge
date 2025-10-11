@@ -87,6 +87,8 @@ ai-scribe/
 │   └── web/         # Next.js frontend + Tailwind
 ├── docker-compose.yml
 └── README.md
+
+
 💡 Improvements (Next Steps)
 🔐 Auth & role-based users
 
@@ -101,6 +103,6 @@ ai-scribe/
 🧠 Add summarization / risk flags via LLMs
 
 👨‍💻 Author
-Ezequiel Guerra — Full-Stack Developer
+Ezequiel Guerra 
 🌎 Uruguay | 💻 React • Node.js • TypeScript
 🔗 LinkedIn · 🐙 GitHub
