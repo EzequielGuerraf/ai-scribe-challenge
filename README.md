@@ -20,7 +20,7 @@
 git clone https://github.com/EzequielGuerraf/ai-scribe-challenge.git
 cd ai-scribe-challenge
 
-# 2️⃣ Install deps
+# 2️⃣ Install dependencies
 pnpm install
 
 # 3️⃣ Run database
@@ -40,77 +40,3 @@ pnpm prisma migrate dev
 
 # 6️⃣ Start both apps
 pnpm start:all
-
-
----
-
-## 🧩 Features
-
-- ✅ List mock patients  
-- 📝 Create text or audio notes  
-- 🎙️ Transcribe audio → text (Whisper)  
-- 🩺 Generate SOAP note (GPT-4o-mini)  
-- 📄 View note details (text, transcript, SOAP)  
-- 💥 Fallback heuristic if AI fails  
-
----
-
-## 🔗 API Summary
-
-| Method | Endpoint                    | Purpose                   |
-|-------:|-----------------------------|---------------------------|
-| GET    | `/patients`                 | List all patients         |
-| POST   | `/notes`                    | Create text note          |
-| POST   | `/notes/audio`              | Upload audio              |
-| POST   | `/notes/:id/transcribe`     | Transcribe via Whisper    |
-| POST   | `/notes/:id/generate`       | Generate SOAP (GPT-4o-mini) |
-| GET    | `/patients/:id/notes`       | Get patient notes         |
-| GET    | `/notes/:id`                | Get note detail           |
-
----
-
-## 🧠 AI Integration
-
-**Transcription (Whisper)**  
-Converts audio files to text.  
-Model: `whisper-1`
-
-**SOAP Generation (GPT-4o-mini)**  
-Converts transcript → SOAP structure.  
-S: Subjective
-O: Objective
-A: Assessment
-P: Plan
-
----
-
-## 🧱 Structure
-
-ai-scribe/
-├── apps/
-│ ├── api/ # Express backend + Prisma + AI
-│ └── web/ # Next.js frontend + Tailwind
-├── docker-compose.yml
-└── README.md
-
-
-
----
-
-## 💡 Improvements (Next Steps)
-
-- 🔐 Auth & role-based users  
-- 🎧 Audio recording from browser  
-- ☁️ Cloud storage for files (S3)  
-- 🧾 Specialty-specific SOAP templates  
-- 🌍 Multi-language support  
-- 🧠 Add summarization / risk flags via LLMs  
-
----
-
-## 👨‍💻 Author
-
-**Ezequiel Guerra**  
-[🔗 LinkedIn](https://www.linkedin.com/in/ezequielguerra-dev) · [🐙 GitHub](https://github.com/EzequielGuerraf)
-
-
