@@ -20,13 +20,15 @@ model Patient {
 }
 
 model Note {
-  id            String   @id @default(cuid())
+  id            String   @id @default(uuid())
   patientId     String
-  inputType     String // 'text' | 'audio'
-  status        String // 'processing' | 'ready' | 'failed'
+  patient       Patient  @relation(fields: [patientId], references: [id])
+  inputType     String   // "text" | "audio"
+  status        String   // "processing" | "ready" | "failed"
   sourceText    String?
   transcript    String?
   generatedNote String?
+  audioFilename String?  // <-- necesitamos esto para transcribir
   createdAt     DateTime @default(now())
-  patient       Patient  @relation(fields: [patientId], references: [id])
 }
+
