@@ -22,13 +22,14 @@ pnpm install
 # 3️⃣ Run database
 docker compose up -d
 
-# 4️⃣ Setup .env (apps/api/.env)
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/scribe"
-OPENAI_API_KEY=sk-<your_key>
+# 4️⃣ Setup .env (apps/api/.env) or use the .env.example
+DATABASE_URL="postgresql://scribe:scribe@localhost:5432/scribe"
+OPENAI_API_KEY=sk-<your_key_here>
 TRANSCRIBE_MODEL=whisper-1
 GENERATION_MODEL=gpt-4o-mini
 UPLOAD_DIR=./uploads
 PORT=4000
+
 
 # 5️⃣ Migrate DB
 cd apps/api
@@ -72,17 +73,15 @@ Model: whisper-1
 SOAP Generation (GPT-4o-mini)
 Converts transcript → SOAP structure.
 
-makefile
-Copiar código
 S: Subjective  
 O: Objective  
 A: Assessment  
 P: Plan
+
 If AI fails or quota ends → fallback heuristic SOAP generation is used.
 
 ## 🧱 Structure
-bash
-Copiar código
+
 ai-scribe/
 ├── apps/
 │   ├── api/         # Express backend + Prisma + AI
@@ -104,7 +103,6 @@ ai-scribe/
 
 🧠 Add summarization / risk flags via LLMs
 
-👨‍💻 Author
-Ezequiel Guerra 
-🌎 Uruguay | 💻 React • Node.js • TypeScript
-🔗 LinkedIn · 🐙 GitHub
+
+👨‍💻 Author: Ezequiel Guerra 
+🌎 Uruguay 🔗 LinkedIn · 🐙 GitHub
