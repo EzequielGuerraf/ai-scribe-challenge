@@ -35,6 +35,9 @@ PORT=4000
 cd apps/api
 pnpm prisma migrate dev
 
+# Seed database (adds mock patients)
+pnpm run seed
+
 # 6️⃣ Start both apps
 pnpm start:all
 🧠 Frontend: http://localhost:3000

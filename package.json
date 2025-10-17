@@ -2,12 +2,18 @@
   "name": "ai-scribe",
   "private": true,
   "version": "0.1.0",
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "test": "pnpm -r test",
-	"start:all": "docker compose up -d && pnpm -r --parallel dev"
+    "start:all": "docker compose up -d && pnpm -r --parallel dev"
+  },
+  "devDependencies": {
+    "@types/node": "^24.8.1"
   }
 }
