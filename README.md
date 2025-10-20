@@ -50,6 +50,8 @@ pnpm start:all
 
 📝 Create text or audio notes
 
+🧍‍♂️ Create, edit, and delete patients directly from the app
+
 🎙️ Transcribe audio → text (Whisper)
 
 🩺 Generate SOAP note (GPT-4o-mini)
@@ -59,14 +61,19 @@ pnpm start:all
 💥 Fallback heuristic if AI fails
 
 ## 🔗 API Summary
-Method	Endpoint	Purpose
-GET	/patients	List all patients
-POST	/notes	Create text note
-POST	/notes/audio	Upload audio
-POST	/notes/:id/transcribe	Transcribe via Whisper
-POST	/notes/:id/generate	Generate SOAP (GPT-4o-mini)
-GET	/patients/:id/notes	Get patient notes
-GET	/notes/:id	Get note detail
+Method	Endpoint	           Purpose
+
+GET	    /patients	           List all patients
+GET	    /patients/:id	       Get patient by ID
+POST    /patients	           Create patient
+PUT	    /patients/:id	       Update patient
+DELETE	/patients/:id	       Delete patient
+POST	/notes	               Create text note
+POST	/notes/audio	       Upload audio
+POST	/notes/:id/transcribe  Transcribe via Whisper
+POST	/notes/:id/generate	   Generate SOAP (GPT-4o-mini)
+GET	    /patients/:id/notes	   Get patient notes
+GET	    /notes/:id	           Get note details
 
 ## 🧠 AI Integration
 Transcription (Whisper)

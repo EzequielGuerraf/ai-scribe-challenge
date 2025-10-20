@@ -6,6 +6,7 @@ import multer, { StorageEngine } from "multer";
 import fs from "fs";
 import path from "path";
 import { transcribeAudio, generateSOAPWithAI } from "./services/aiService";
+import { patientsRouter } from "./routes/patients";
 
 const app = express();
 const prisma = new PrismaClient();
@@ -216,3 +217,8 @@ app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
 });
 
 app.listen(PORT, () => console.log(`✅ API running on http://localhost:${PORT}`));
+
+
+
+/* Mount patients router */
+app.use("/patients", patientsRouter);

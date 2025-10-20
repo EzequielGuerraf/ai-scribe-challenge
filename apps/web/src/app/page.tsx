@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/emptyState";
-import { Users, Plus, Search } from "lucide-react";
+import { Users, Plus, Search, UserPlus  } from "lucide-react";
 
 type SortKey = "recent" | "az" | "za";
 
@@ -69,10 +69,16 @@ export default function Home() {
                 <div className="text-xl font-light text-gray-300">{data?.length ?? 0}</div>
               </div>
             </div>
+            <div className="flex gap-4">
             <Button variant="outline" onClick={() => (window.location.href = "/notes/create")}>
               <Plus className="mr-2" size={16} />
               Create note
             </Button>
+            <Button variant="outline" onClick={() => (window.location.href = "/patients/new")}>
+              <UserPlus className="mr-2" size={16} />
+              Create Patient
+            </Button>
+            </div>
           </div>
         </CardBody>
       </Card>
@@ -168,6 +174,7 @@ function PatientCard({
           >
             View notes →
           </a>
+          <a className="ml-3 text-gray-600 hover:text-black text-sm" href={`/patients/${id}/edit`}>Edit</a>
         </div>
       </CardBody>
     </Card>
